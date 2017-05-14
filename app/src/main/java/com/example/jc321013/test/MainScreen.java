@@ -54,10 +54,6 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
 
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
