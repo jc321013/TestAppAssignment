@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class Game extends AppCompatActivity {
 
     private QuestionBank mQuestionLibrary = new QuestionBank();
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game);
         // setup screen for the first question with four alternative to answer
         mScoreView = (TextView)findViewById(R.id.score);
         mQuestionView = (TextView)findViewById(R.id.question);
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
             mQuestionNumber++;
         }
         else {
-            Toast.makeText(MainActivity.this, "It was the last question!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, HighestScoreActivity.class);
+            Toast.makeText(Game.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Game.this, HighestScoreActivity.class);
             intent.putExtra("score", mScore); // pass the current score to the second screen
             startActivity(intent);
         }
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
         // if the answer is correct, increase the score
         if (answer.getText().equals(mAnswer)){
             mScore = mScore + 1;
-            Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Game.this, "Correct!", Toast.LENGTH_SHORT).show();
         }else
-            Toast.makeText(MainActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Game.this, "Wrong!", Toast.LENGTH_SHORT).show();
         // show current total score for the user
         updateScore(mScore);
         // once user answer the question, we move on to the next one, if any
