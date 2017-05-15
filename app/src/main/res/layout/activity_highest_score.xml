@@ -5,7 +5,7 @@
         android:id="@+id/activity_highest_score"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#b9babf"
+    android:background="@drawable/volcanoe"
         tools:context="com.example.jc321013.test.HighestScoreActivity">
 
     <TextView
@@ -25,7 +25,7 @@
                 android:id="@+id/textScore"
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/background_light"
+                android:textColor="#fff"
                 android:text="Your score:"
                 android:textSize="35sp"
                 android:textStyle="bold" />
@@ -34,7 +34,7 @@
                 android:id="@+id/textHighScore"
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/background_light"
+                android:textColor="#fff"
                 android:text="Highest score:"
                 android:textSize="40sp"
                 android:textStyle="bold" />
@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:layout_marginTop="30sp"
+                android:textColor="#fff"
                 android:text="Play Again" />
 
 

@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.jc321013.test.Game"
-    android:background="#b9babf"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/volcanoe"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,18 +19,18 @@
             android:id="@+id/score_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
             android:layout_alignParentLeft="true"
             android:text="Score:"
+            android:textColor="#fff"
             android:textAppearance="@android:style/TextAppearance.Holo.Medium" />
 
         <TextView
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
             android:layout_alignParentRight="true"
             android:text="0/0"
+            android:textColor="#fff"
             android:textAppearance="@android:style/TextAppearance.Large" />
 
     </RelativeLayout>
@@ -39,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Question to answer:"
+        android:textColor="#fff"
         android:padding="4dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/question"

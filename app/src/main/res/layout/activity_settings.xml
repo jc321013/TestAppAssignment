@@ -4,7 +4,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#b9babf"
+        android:background="@drawable/volcanoe"
         tools:context="com.example.jc321013.test.Settings">
 
     <TextView
@@ -20,7 +20,7 @@
         android:keepScreenOn="true"
         android:text="Welcome to the settings page"
         android:textSize="25dp"
-
+        android:textColor="#fff"
         />
 
 
