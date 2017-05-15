@@ -28,7 +28,7 @@ public class Authenticate extends AppCompatActivity {
             @Override
             public void onLoadResource(WebView view, String url) {
                 System.out.println(url);
-                if (url.startsWith("http://crunchycodes.net")) {
+                if (url.startsWith("http://thisisfake.net")) {
                     Uri uri = Uri.parse(url);
                     final String oauthVerifier = uri.getQueryParameter("oauth_verifier");
                     if (oauthVerifier != null) {

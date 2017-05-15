@@ -72,8 +72,8 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
         textView.setMovementMethod(new ScrollingMovementMethod());
         textView.setText("Natural Disaster Awareness Test! Begin Test :)");
 
-//        textView2 = (TextView) findViewById(R.id.text_view2);
-//        textView2.setMovementMethod(new ScrollingMovementMethod());
+        textView2 = (TextView) findViewById(R.id.text_view2);
+        textView2.setMovementMethod(new ScrollingMovementMethod());
 
         context = this;
         button1 = (Button) findViewById(R.id.button1);
@@ -197,13 +197,13 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
 
     }
 
-    public void onStart() {
-        super.onStart();
-    }
-
-    public void onPause() {
-        super.onPause();
-    }
+//    public void onStart() {
+//        super.onStart();
+//    }
+//
+//    public void onPause() {
+//        super.onPause();
+//    }
 
 
 

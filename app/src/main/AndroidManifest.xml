@@ -21,7 +21,7 @@
         <activity android:name=".HighestScoreActivity" />
         <activity android:name=".Game" />
         <activity android:name=".Authenticate" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings"/>
     </application>
 
 </manifest>
