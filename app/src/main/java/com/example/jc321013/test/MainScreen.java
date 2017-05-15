@@ -35,7 +35,6 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
     private Button highScore;
     private TextView textView;
     private Button settings;
-//    private TextView textView2;
     private Context context;
 
     private static final int AUTHENTICATE = 1;
@@ -68,15 +67,10 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
         decorView.setSystemUiVisibility(FULLSCREEN);
         decorView.setOnSystemUiVisibilityChangeListener(this);
 
-
-
-
         textView = (TextView) findViewById(R.id.textView);
         textView.setMovementMethod(new ScrollingMovementMethod());
         textView.setText("Natural Disaster Awareness Test! Begin Test :)");
 
-//        textView2 = (TextView) findViewById(R.id.text_view2);
-//        textView2.setMovementMethod(new ScrollingMovementMethod());
 
         context = this;
         button1 = (Button) findViewById(R.id.button1);
@@ -84,12 +78,12 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
             @Override
             public void onClick(View v) {
                 // starts the game when new game is clicked, places user onto the multipul choice screen
-
                 Intent intent = new Intent(context, Game.class);
                 startActivity(intent);
             }
         });
 
+        // takes user to settings screen
         context = this;
         settings = (Button) findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +94,7 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
             }
         });
 
+        //// takes user to highScores screen
         context = this;
         highScore = (Button) findViewById(R.id.highScore);
         highScore.setOnClickListener(new View.OnClickListener() {
@@ -109,10 +104,7 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
                 startActivity(intent);
             }
         });
-
-
     }
-
 
     private void toggleControls() {
         int flags = decorView.getSystemUiVisibility();
@@ -146,9 +138,6 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
     }
 
 
-
-
-
     public void authorise(View view) {
         Intent intent = new Intent(this, Authenticate.class);
         startActivityForResult(intent, AUTHENTICATE);
@@ -174,7 +163,7 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-//                                textView2.setText(e.toString());
+//
                             }
                         });
                         return;
@@ -188,11 +177,9 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
                                 .append(status.getText())
                                 .append("\n");
                     }
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-//                            textView2.setText(builder.toString().trim());
                         }
                     });
                 }
@@ -203,14 +190,13 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater mi = getMenuInflater();
-        mi.inflate(R.menu.main_page, menu);
+        MenuInflater menuItem = getMenuInflater();
+        menuItem.inflate(R.menu.main_page, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int i = item.getItemId();
         if(i == R.id.actionBarSettings) {
             Intent intent = new Intent(this, Settings.class);

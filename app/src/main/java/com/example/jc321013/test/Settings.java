@@ -74,8 +74,8 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater mi = getMenuInflater();
-        mi.inflate(R.menu.main_page, menu);
+        MenuInflater menuItem = getMenuInflater();
+        menuItem.inflate(R.menu.main_page, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class HighestScoreActivity extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener {
+    //this class displays the users current score and highscore after the game is completed
+
     private Button startAgain;
     private Context context;
 
@@ -59,16 +61,19 @@ public class HighestScoreActivity extends AppCompatActivity implements View.OnSy
         // use Shared preferences to save the best score
         SharedPreferences mypref = getPreferences(MODE_PRIVATE);
         int highscore = mypref.getInt("highscore",0);
+        //if the users current score is the highest it is displayed
         if(highscore>= score)
-            txtHighScore.setText("High score: "+highscore);
+            txtHighScore.setText("High score: "+ highscore);
         else
         {
-            txtHighScore.setText("New highscore: "+score);
+            //if the user gets a score higher than previous the new highscore is updated
+            txtHighScore.setText("New highscore: "+ score);
             SharedPreferences.Editor editor = mypref.edit();
             editor.putInt("highscore", score);
             editor.commit();
         }
 
+        //if the user wants to play again they are taken back to main screen
         context = this;
         startAgain = (Button) findViewById(R.id.startAgain);
         startAgain.setOnClickListener(new View.OnClickListener() {
@@ -76,24 +81,19 @@ public class HighestScoreActivity extends AppCompatActivity implements View.OnSy
             public void onClick(View view) {
                 Intent intent = new Intent(context, MainScreen.class);
                 startActivity(intent);
-
-
-
-
+            }
+        });
     }
 
-
-});
-    }
-
+    // displays items in the action bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater mi = getMenuInflater();
-        mi.inflate(R.menu.main_page, menu);
+        MenuInflater menuItem = getMenuInflater();
+        menuItem.inflate(R.menu.main_page, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-
+    //controls the displays for the action bar and which icon relocates to which screen
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
