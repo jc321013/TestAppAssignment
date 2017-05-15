@@ -23,6 +23,7 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
 
 
     private Button quit;
+    private Button data;
     private Context context;
     private TextView settingsText;
 
@@ -65,6 +66,16 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, MainScreen.class);
+                    startActivity(intent);
+                }
+            });
+
+            context = this;
+            data = (Button) findViewById(R.id.data);
+            data.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, AccelarometreData.class);
                     startActivity(intent);
                 }
             });
