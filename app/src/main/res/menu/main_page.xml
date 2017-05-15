@@ -6,7 +6,8 @@
         android:id="@+id/actionBarSettings"
         android:icon="@drawable/download"
         android:title="Settings"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        />
     <item
         android:id="@+id/actionBarHighScore"
         android:icon="@drawable/highscore"

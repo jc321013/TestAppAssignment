@@ -19,35 +19,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="107dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            >
 
             <TextView
-                android:text="Your score:"
-                android:layout_width="500dp"
-                android:layout_height="wrap_content"
                 android:id="@+id/textScore"
-                android:background="@android:color/holo_orange_light"
-
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
-            <TextView
-                android:text="Highest score:"
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                android:id="@+id/textHighScore"
+                android:background="@android:color/darker_gray"
+                android:text="Your score:"
+                android:textSize="35sp"
+                android:textStyle="bold" />
 
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            <TextView
+                android:id="@+id/textHighScore"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:text="Highest score:"
+                android:textSize="40sp"
+                android:textStyle="bold" />
 
             <Button
+                android:id="@+id/startAgain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Play Again"
-                android:id="@+id/startAgain"
-
-                />
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="30sp"
+                android:text="Play Again" />
 
 
         </LinearLayout>

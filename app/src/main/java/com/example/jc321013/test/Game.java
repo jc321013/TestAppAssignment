@@ -1,5 +1,6 @@
 package com.example.jc321013.test;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ public class Game extends AppCompatActivity {
     private Button mButtonChoice1; // multiple choice 1 for mQuestionView
     private Button mButtonChoice2; // multiple choice 2 for mQuestionView
     private Button mButtonChoice3; // multiple choice 3 for mQuestionView
+    private Button quitGame;
+    private Context context;
 
     private String mAnswer;  // correct answer for question in mQuestionView
     private int mScore = 0;  // current total score
@@ -26,6 +29,16 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        context = this;
+        quitGame = (Button) findViewById(R.id.quitGame);
+        quitGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MainScreen.class);
+                startActivity(intent);
+            }
+        });
         // setup screen for the first question with four alternative to answer
         mScoreView = (TextView)findViewById(R.id.score);
         mQuestionView = (TextView)findViewById(R.id.question);
@@ -37,6 +50,7 @@ public class Game extends AppCompatActivity {
         updateQuestion();
         // show current total score for the user
         updateScore(mScore);
+
     }
 
     private void updateQuestion(){
@@ -78,4 +92,5 @@ public class Game extends AppCompatActivity {
         // once user answer the question, we move on to the next one, if any
         updateQuestion();
     }
+
 }

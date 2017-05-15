@@ -8,6 +8,32 @@
     android:background="#b9babf"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/score_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:layout_alignParentLeft="true"
+            android:text="Score:"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:layout_alignParentRight="true"
+            android:text="0/0"
+            android:textAppearance="@android:style/TextAppearance.Large" />
+
+    </RelativeLayout>
+
 
     <TextView
         android:layout_width="match_parent"
@@ -21,67 +47,57 @@
 
 
     <Button
+        android:id="@+id/choice1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:background="@android:color/holo_blue_bright"
-        android:textColor="#000000"
-        android:padding="8dp"
-        android:onClick="onClick"
         android:layout_marginBottom="24dp"
-        android:id="@+id/choice1"/>
+        android:background="@color/colorPrimary"
+        android:onClick="onClick"
+        android:padding="8dp"
+        android:text=""
+        android:textColor="#fff" />
 
     <Button
+        android:id="@+id/choice2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:background="@android:color/holo_blue_bright"
-        android:textColor="#000000"
-        android:padding="8dp"
-        android:onClick="onClick"
         android:layout_marginBottom="24dp"
-        android:id="@+id/choice2"/>
+        android:background="@color/colorPrimary"
+        android:onClick="onClick"
+        android:padding="8dp"
+        android:text=""
+        android:textColor="#fff" />
 
     <Button
+        android:id="@+id/choice3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:background="@android:color/holo_blue_bright"
-        android:textColor="#000000"
-        android:padding="8dp"
-        android:onClick="onClick"
         android:layout_marginBottom="24dp"
-        android:id="@+id/choice3"/>
+        android:background="@color/colorPrimary"
+        android:onClick="onClick"
+        android:padding="8dp"
+        android:text=""
+        android:textColor="#fff"/>
 
-
-
-
-
-
-    <LinearLayout
+    <Button
+        android:id="@+id/quitGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="1dp"
-        android:orientation="vertical">
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/holo_red_dark"
+        android:padding="10dp"
+        android:text="quit"
+        android:textColor="#fff"
+        android:onClick="quitButtonHelper"
+        />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Score:"
-            android:id="@+id/score_text"
-            android:gravity="center_horizontal"
-            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
-            android:background="@android:color/holo_orange_light" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/score"
-            android:gravity="center_horizontal"
-            android:text="0/0"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:background="@android:color/holo_orange_light" />
 
-    </LinearLayout>
+
+
+
+
+
+
 </LinearLayout>
 

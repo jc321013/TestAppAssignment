@@ -35,7 +35,7 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
     private Button highScore;
     private TextView textView;
     private Button settings;
-    private TextView textView2;
+//    private TextView textView2;
     private Context context;
 
     private static final int AUTHENTICATE = 1;
@@ -75,8 +75,8 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
         textView.setMovementMethod(new ScrollingMovementMethod());
         textView.setText("Natural Disaster Awareness Test! Begin Test :)");
 
-        textView2 = (TextView) findViewById(R.id.text_view2);
-        textView2.setMovementMethod(new ScrollingMovementMethod());
+//        textView2 = (TextView) findViewById(R.id.text_view2);
+//        textView2.setMovementMethod(new ScrollingMovementMethod());
 
         context = this;
         button1 = (Button) findViewById(R.id.button1);
@@ -174,7 +174,7 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                textView2.setText(e.toString());
+//                                textView2.setText(e.toString());
                             }
                         });
                         return;
@@ -192,7 +192,7 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            textView2.setText(builder.toString().trim());
+//                            textView2.setText(builder.toString().trim());
                         }
                     });
                 }

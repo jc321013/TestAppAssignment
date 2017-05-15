@@ -53,7 +53,7 @@
             android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
             android:onClick="Main2Activity"
-            android:padding="8dp"
+            android:padding="20dp"
             android:text="New Game"
             android:textColor="#fff"
 
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@color/colorPrimary"
-            android:padding="8dp"
+            android:padding="20dp"
             android:text="HighScores"
             android:textColor="#fff"
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@color/colorPrimary"
-            android:padding="8dp"
+            android:padding="20dp"
             android:text="Settings"
             android:textColor="#fff"
 
@@ -98,13 +98,13 @@
 
             />
 
-        <TextView
-            android:id="@+id/text_view2"
-            android:scrollbars="vertical"
-            android:maxLines="1000"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="9" />
+        <!--<TextView-->
+            <!--android:id="@+id/text_view2"-->
+            <!--android:scrollbars="vertical"-->
+            <!--android:maxLines="1000"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="9" />-->
     </LinearLayout>
 
 
