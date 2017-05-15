@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.GestureDetector;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -110,6 +113,7 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
 
     }
 
+
     private void toggleControls() {
         int flags = decorView.getSystemUiVisibility();
         flags ^= NO_CONTROLS;
@@ -197,7 +201,31 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
 
     }
 
-//    public void onStart() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.main_page, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int i = item.getItemId();
+        if(i == R.id.actionBarSettings) {
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+        } else if (i == R.id.actionBarHighScore){
+            Intent intent = new Intent(this, HighestScoreActivity.class);
+            startActivity(intent);
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //    public void onStart() {
 //        super.onStart();
 //    }
 //
