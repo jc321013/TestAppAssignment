@@ -17,12 +17,13 @@ import java.util.List;
 
 public class MyDataBaseHelper extends SQLiteOpenHelper {
 
-    // Database name
+
     public static String DATABASE_QUESTION = "questionBank.db";
-    // Current version of database
+
     private static final int DATABASE_VERSION = 1;
     // Database table name
     private static final String TABLE_QUESTION = "QuestionBank";
+
     // All fields used in database table
     private static final String KEY_ID = "id";
     private static final String QUESTION = "question";
@@ -32,7 +33,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     private static final String CHOICE4 = "choice4";
     private static final String ANSWER = "answer";
 
-    // Question Table Create Query in this string
+    // Creates a query
     private static final String CREATE_TABLE_QUESTION = "CREATE TABLE "
             + TABLE_QUESTION + "(" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT," + QUESTION + " TEXT,"
@@ -43,49 +44,40 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_QUESTION, null, DATABASE_VERSION);
     }
 
-    /**
-     * This method is called by system if the database is accessed but not yet
-     * created.
-     */
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE_QUESTION); // create question table
+        db.execSQL(CREATE_TABLE_QUESTION);
     }
 
-    /**
-     * This method is called when any modifications in database are done like
-     * version is updated or database schema is changed
-     */
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + CREATE_TABLE_QUESTION); // drop table if exists
+        // if it exists drop table
+        db.execSQL("DROP TABLE IF EXISTS " + CREATE_TABLE_QUESTION);
         onCreate(db);
     }
 
-    /**
-     * This method is used to add question detail in question Table
-     */
+
     public long addInitialQuestion (Question question) {
         SQLiteDatabase db = this.getWritableDatabase();
-        // Creating content values
+        // Content value being created
         ContentValues values = new ContentValues();
+
         values.put(QUESTION, question.getQuestion());
         values.put(CHOICE1, question.getChoice(0));
         values.put(CHOICE2, question.getChoice(1));
         values.put(CHOICE3,  question.getChoice(2));
         values.put(CHOICE4,  question.getChoice(3));
         values.put(ANSWER, question.getAnswer());
-        // insert row in question table
+        // rows are inserted
         long insert = db.insert(TABLE_QUESTION, null, values);
         return insert;
     }
 
 
 
-    /**
-     * To extract data from database and save it Arraylist of data type
-     * Question
-     */
+
     public List<Question> getAllQuestionsList() {
         List<Question> questionArrayList = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + TABLE_QUESTION;
@@ -93,7 +85,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
 
-        // looping through all records and adding to the list
+
         if (c.moveToFirst()) {
             do {
                 Question question = new Question();
