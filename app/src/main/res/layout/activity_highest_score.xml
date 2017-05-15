@@ -5,6 +5,7 @@
         android:id="@+id/activity_highest_score"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#b9babf"
         tools:context="com.example.jc321013.test.HighestScoreActivity">
 
     <TextView
