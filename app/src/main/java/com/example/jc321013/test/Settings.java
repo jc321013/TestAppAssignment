@@ -6,6 +6,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Settings extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener{
@@ -22,6 +24,7 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
 
     private Button quit;
     private Context context;
+    private TextView settingsText;
 
 
     private View decorView;
@@ -49,6 +52,9 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
             decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(FULLSCREEN);
             decorView.setOnSystemUiVisibilityChangeListener(this);
+
+            settingsText = (TextView) findViewById(R.id.settingsText);
+            settingsText.setText("Welcome to the Settings Page");
 
 
 
@@ -123,8 +129,20 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
         Context context = getApplicationContext();
         CharSequence text = "Take your time to read the questions"
                 + System.getProperty("line.separator") + "Try to beat your high score"
-                + System.getProperty("line.separator") + "Answers are there if you need help!";
-        int duration = Toast.LENGTH_SHORT;
+                + System.getProperty("line.separator") + "Click About Quiz to know what the quiz is about";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
+
+    public void aboutButtonHandler (View view) {
+        Context context = getApplicationContext();
+        CharSequence text = "This quiz raises awareness for Natural Disasters"
+                + System.getProperty("line.separator") + "This educational game will teach you about the main natural disasters!"
+                + System.getProperty("line.separator") + "If you need tips click the Tips button";
+        int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.setGravity(Gravity.CENTER, 0, 0);

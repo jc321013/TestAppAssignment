@@ -17,17 +17,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:keepScreenOn="true"
-        android:text="Welcome to The Settings Page"
+        android:text="Welcome to the settings page"
         android:textSize="25dp"
 
         />
+
+
 
 
     <Button
         android:id="@+id/tip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300sp"
+        android:layout_marginTop="100sp"
         android:background="@color/colorPrimary"
         android:padding="20dp"
         android:textColor="#fff"
@@ -36,11 +38,25 @@
 
         />
 
+    <Button
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="@color/colorPrimary"
+        android:padding="20dp"
+        android:textColor="#fff"
+        android:text="About Quiz"
+        android:onClick="aboutButtonHandler"
+
+        />
+
+
+
         <Button
             android:id="@+id/quit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
             android:layout_marginTop="20sp"
             android:background="@android:color/holo_red_dark"
             android:padding="20dp"
