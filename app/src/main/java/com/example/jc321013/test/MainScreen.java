@@ -225,13 +225,10 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
         return super.onOptionsItemSelected(item);
     }
 
-    //    public void onStart() {
-//        super.onStart();
-//    }
-//
-//    public void onPause() {
-//        super.onPause();
-//    }
+        public void onStart() {
+        super.onStart();
+    }
+
 
 
 
