@@ -12,24 +12,35 @@ import android.widget.Toast;
 public class Game extends AppCompatActivity {
 
     private QuestionBank mQuestionLibrary = new QuestionBank();
-
-    private TextView mScoreView;   // view for current total score
-    private TextView mQuestionView;  //current question to answer
-    private Button mButtonChoice1; // multiple choice 1 for mQuestionView
-    private Button mButtonChoice2; // multiple choice 2 for mQuestionView
-    private Button mButtonChoice3; // multiple choice 3 for mQuestionView
+    private TextView scoreView;
+    private TextView questionView;
+    private Button choice1;
+    private Button choice2;
+    private Button choice3;
     private Button quitGame;
     private Context context;
-
-    private String mAnswer;  // correct answer for question in mQuestionView
-    private int mScore = 0;  // current total score
-    private int mQuestionNumber = 0; // current question number
+    private String mAnswer;
+    private int mScore = 0;
+    private int mQuestionNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        // setup screen for the first question with four alternative to answer
+        scoreView = (TextView)findViewById(R.id.score);
+        questionView = (TextView)findViewById(R.id.question);
+        choice1 = (Button)findViewById(R.id.choice1);
+        choice2 = (Button)findViewById(R.id.choice2);
+        choice3 = (Button)findViewById(R.id.choice3);
+
+        mQuestionLibrary.initQuestions(getApplicationContext());
+        updateQuestion();
+        // show current total score for the user
+        updateScore(mScore);
+
+        // when the user clicks the quit button it takes them back to the mainscreen
         context = this;
         quitGame = (Button) findViewById(R.id.quitGame);
         quitGame.setOnClickListener(new View.OnClickListener() {
@@ -39,57 +50,47 @@ public class Game extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // setup screen for the first question with four alternative to answer
-        mScoreView = (TextView)findViewById(R.id.score);
-        mQuestionView = (TextView)findViewById(R.id.question);
-        mButtonChoice1 = (Button)findViewById(R.id.choice1);
-        mButtonChoice2 = (Button)findViewById(R.id.choice2);
-        mButtonChoice3 = (Button)findViewById(R.id.choice3);
-
-        mQuestionLibrary.initQuestions(getApplicationContext());
-        updateQuestion();
-        // show current total score for the user
-        updateScore(mScore);
 
     }
 
     private void updateQuestion(){
-        // check if we are not outside array bounds for questions
-        if(mQuestionNumber<mQuestionLibrary.getLength() ){
-            // set the text for new question,
-            // and new 4 alternative to answer on four buttons
-            mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
-            mButtonChoice1.setText(mQuestionLibrary.getChoice(mQuestionNumber, 1));
-            mButtonChoice2.setText(mQuestionLibrary.getChoice(mQuestionNumber, 2));
-            mButtonChoice3.setText(mQuestionLibrary.getChoice(mQuestionNumber, 3));
+        if(mQuestionNumber < mQuestionLibrary.getLength() ){
+            // This sets the new questions
+            questionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
+            // This sets the new answers for the new question
+            choice1.setText(mQuestionLibrary.getChoice(mQuestionNumber, 1));
+            choice2.setText(mQuestionLibrary.getChoice(mQuestionNumber, 2));
+            choice3.setText(mQuestionLibrary.getChoice(mQuestionNumber, 3));
             mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
             mQuestionNumber++;
         }
         else {
-            Toast.makeText(Game.this, "It was the last question!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Game.this, "The was the final question, yay :)", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Game.this, HighestScoreActivity.class);
-            intent.putExtra("score", mScore); // pass the current score to the second screen
+            // pass the current score to the second screen
+            intent.putExtra("score", mScore);
             startActivity(intent);
         }
     }
 
     // show current total score for the user
     private void updateScore(int point) {
-        mScoreView.setText(""+mScore+"/"+mQuestionLibrary.getLength());
+        scoreView.setText(""+mScore+"/"+mQuestionLibrary.getLength());
     }
 
     public void onClick(View view) {
-        //all logic for all answers buttons in one method
         Button answer = (Button) view;
-        // if the answer is correct, increase the score
+        // if the user answers correct the score is updated
         if (answer.getText().equals(mAnswer)){
             mScore = mScore + 1;
+            //if the user answers correctly "correct" is displayed
             Toast.makeText(Game.this, "Correct!", Toast.LENGTH_SHORT).show();
         }else
+            //if the user answers incorrectly "wrong" is displayed
             Toast.makeText(Game.this, "Wrong!", Toast.LENGTH_SHORT).show();
         // show current total score for the user
         updateScore(mScore);
-        // once user answer the question, we move on to the next one, if any
+        // once the current question is answered, the next is displayed
         updateQuestion();
     }
 

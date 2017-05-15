@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class Database extends SQLiteOpenHelper {
+    // this class stores the users highscores in an sql database
 
 
 

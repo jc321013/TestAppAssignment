@@ -13,6 +13,7 @@ import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
 public class Authenticate extends AppCompatActivity {
+    // this class allows the user to post to twitter
 
     WebView webView;
     //    reference to single twitter object
