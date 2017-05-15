@@ -7,14 +7,18 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Settings extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener{
+
+
 
     private Button quit;
     private Context context;
@@ -45,6 +49,8 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
             decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(FULLSCREEN);
             decorView.setOnSystemUiVisibilityChangeListener(this);
+
+
 
 
             context = this;
@@ -112,6 +118,20 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
                 actionBar.show();
         }
     }
+
+    public void tipButtonHandler (View view) {
+        Context context = getApplicationContext();
+        CharSequence text = "Take your time to read the questions"
+                + System.getProperty("line.separator") + "Try to beat your high score"
+                + System.getProperty("line.separator") + "Answers are there if you need help!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
+
+
 
 
 }
