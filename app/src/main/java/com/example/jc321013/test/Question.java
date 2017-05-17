@@ -11,6 +11,7 @@ public class Question {
     public Question() {
 
     }
+
     public Question(String question, String[] choices, String answer) {
         this.question = question;
         this.choice[0] = choices[0];

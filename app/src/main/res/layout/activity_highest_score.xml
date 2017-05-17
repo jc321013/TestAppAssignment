@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_highest_score"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_highest_score"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/volcanoe"
-        tools:context="com.example.jc321013.test.HighestScoreActivity">
+    tools:context="com.example.jc321013.test.HighestScoreActivity">
 
     <TextView
         android:id="@+id/fullscreen_content"
@@ -14,40 +14,39 @@
         android:layout_height="wrap_content"
         android:keepScreenOn="true" />
 
-        <LinearLayout
-            android:orientation="vertical"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="107dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textScore"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:text="Your score:"
+            android:textColor="#fff"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textHighScore"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:text="Highest score:"
+            android:textColor="#fff"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/startAgain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="107dp"
-            >
-
-            <TextView
-                android:id="@+id/textScore"
-                android:layout_width="500dp"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:text="Your score:"
-                android:textSize="35sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textHighScore"
-                android:layout_width="500dp"
-                android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:text="Highest score:"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/startAgain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:layout_marginTop="30sp"
-                android:textColor="#fff"
-                android:text="Play Again" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:background="@color/colorPrimary"
+            android:text="Play Again"
+            android:textColor="#fff" />
 
 
-        </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

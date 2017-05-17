@@ -60,14 +60,13 @@ public class HighestScoreActivity extends AppCompatActivity implements View.OnSy
 
         // use Shared preferences to save the best score
         SharedPreferences mypref = getPreferences(MODE_PRIVATE);
-        int highscore = mypref.getInt("highscore",0);
+        int highscore = mypref.getInt("highscore", 0);
         //if the users current score is the highest it is displayed
-        if(highscore>= score)
-            txtHighScore.setText("High score: "+ highscore);
-        else
-        {
+        if (highscore >= score)
+            txtHighScore.setText("High score: " + highscore);
+        else {
             //if the user gets a score higher than previous the new highscore is updated
-            txtHighScore.setText("New highscore: "+ score);
+            txtHighScore.setText("New highscore: " + score);
             SharedPreferences.Editor editor = mypref.edit();
             editor.putInt("highscore", score);
             editor.commit();
@@ -107,7 +106,6 @@ public class HighestScoreActivity extends AppCompatActivity implements View.OnSy
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     private void toggleControls() {

@@ -3,12 +3,12 @@ package com.example.jc321013.test;
 
 import android.content.Context;
 import android.content.Intent;
-import android.speech.tts.TextToSpeech;
+import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,24 +18,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
-import twitter4j.TwitterFactory;
 import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 
 
+public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener,
+        GestureDetector.OnGestureListener {
 
-public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener
-{
 
     private Button button1;
     private Button highScore;
     private TextView textView;
     private Button settings;
     private Context context;
+
 
     private static final int AUTHENTICATE = 1;
     Twitter twitter = TwitterFactory.getSingleton();
@@ -53,7 +53,6 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-
 
 
     @Override
@@ -111,6 +110,45 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
         flags ^= NO_CONTROLS;
         decorView.setSystemUiVisibility(flags);
     }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        textView.setText("onDown");
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+        textView.setText("onShowPress");
+
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        textView.setText("onSlingleTapUp");
+        return true;
+
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        textView.setText("onScroll");
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        textView.setText("onLongPress");
+
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return true;
+    }
+
 
     private class GestureHandler extends GestureDetector.SimpleOnGestureListener {
         @Override
@@ -198,27 +236,52 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
-        if(i == R.id.actionBarSettings) {
+        if (i == R.id.actionBarSettings) {
             Intent intent = new Intent(this, Settings.class);
             startActivity(intent);
-        } else if (i == R.id.actionBarHighScore){
+        } else if (i == R.id.actionBarHighScore) {
             Intent intent = new Intent(this, HighestScoreActivity.class);
             startActivity(intent);
 
 
         }
 
+
         return super.onOptionsItemSelected(item);
     }
 
-        public void onStart() {
-        super.onStart();
+    //creates gestures for the user
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        private static final String DEBUG_TAG = "Gestures";
+
+
+        // when a down event occurs from the user it displays "onDown"
+        @Override
+        public boolean onDown(MotionEvent event) {
+            Log.d(DEBUG_TAG, "onDown: " + event.toString());
+            return true;
+        }
+
+        // when a fling event occurs from the user it displays "onFling"
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
+            return true;
+        }
+
+        // when the user scolls it displays "onScroll"
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+                                float distanceY) {
+            Log.d(DEBUG_TAG, "onScroll: " + e1.toString() + e2.toString());
+            return true;
+        }
     }
 
-
-
-
-
+    public void onStart() {
+        super.onStart();
+    }
 
 
 }

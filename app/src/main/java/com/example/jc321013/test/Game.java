@@ -2,8 +2,11 @@ package com.example.jc321013.test;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -29,11 +32,11 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         // setup screen for the first question with four alternative to answer
-        scoreView = (TextView)findViewById(R.id.score);
-        questionView = (TextView)findViewById(R.id.question);
-        choice1 = (Button)findViewById(R.id.choice1);
-        choice2 = (Button)findViewById(R.id.choice2);
-        choice3 = (Button)findViewById(R.id.choice3);
+        scoreView = (TextView) findViewById(R.id.score);
+        questionView = (TextView) findViewById(R.id.question);
+        choice1 = (Button) findViewById(R.id.choice1);
+        choice2 = (Button) findViewById(R.id.choice2);
+        choice3 = (Button) findViewById(R.id.choice3);
 
         mQuestionLibrary.initQuestions(getApplicationContext());
         updateQuestion();
@@ -53,8 +56,8 @@ public class Game extends AppCompatActivity {
 
     }
 
-    private void updateQuestion(){
-        if(mQuestionNumber < mQuestionLibrary.getLength() ){
+    private void updateQuestion() {
+        if (mQuestionNumber < mQuestionLibrary.getLength()) {
             // This sets the new questions
             questionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
             // This sets the new answers for the new question
@@ -63,8 +66,7 @@ public class Game extends AppCompatActivity {
             choice3.setText(mQuestionLibrary.getChoice(mQuestionNumber, 3));
             mAnswer = mQuestionLibrary.getCorrectAnswer(mQuestionNumber);
             mQuestionNumber++;
-        }
-        else {
+        } else {
             Toast.makeText(Game.this, "The was the final question, yay :)", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Game.this, HighestScoreActivity.class);
             // pass the current score to the second screen
@@ -75,17 +77,17 @@ public class Game extends AppCompatActivity {
 
     // show current total score for the user
     private void updateScore(int point) {
-        scoreView.setText(""+mScore+"/"+mQuestionLibrary.getLength());
+        scoreView.setText("" + mScore + "/" + mQuestionLibrary.getLength());
     }
 
     public void onClick(View view) {
         Button answer = (Button) view;
         // if the user answers correct the score is updated
-        if (answer.getText().equals(mAnswer)){
+        if (answer.getText().equals(mAnswer)) {
             mScore = mScore + 1;
             //if the user answers correctly "correct" is displayed
             Toast.makeText(Game.this, "Correct!", Toast.LENGTH_SHORT).show();
-        }else
+        } else
             //if the user answers incorrectly "wrong" is displayed
             Toast.makeText(Game.this, "Wrong!", Toast.LENGTH_SHORT).show();
         // show current total score for the user
@@ -93,5 +95,36 @@ public class Game extends AppCompatActivity {
         // once the current question is answered, the next is displayed
         updateQuestion();
     }
+
+
+    //creates gestures for the user
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        private static final String DEBUG_TAG = "Gestures";
+
+
+        // when a down event occurs from the user it displays "onDown"
+        @Override
+        public boolean onDown(MotionEvent event) {
+            Log.d(DEBUG_TAG, "onDown: " + event.toString());
+            return true;
+        }
+
+        // when a fling event occurs from the user it displays "onFling"
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+            Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
+            return true;
+        }
+
+        // when the user scolls it displays "onScroll"
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
+                                float distanceY) {
+            Log.d(DEBUG_TAG, "onScroll: " + e1.toString() + e2.toString());
+            return true;
+        }
+    }
+
 
 }

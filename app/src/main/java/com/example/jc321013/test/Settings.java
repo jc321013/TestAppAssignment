@@ -18,8 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Settings extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener{
-
+public class Settings extends AppCompatActivity implements View.OnSystemUiVisibilityChangeListener {
 
 
     private Button quit;
@@ -43,44 +42,41 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_settings);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
 
-            actionBar = getSupportActionBar();
-            gestureDetector = new GestureDetectorCompat(this, new Settings.GestureHandler());
-            decorView = getWindow().getDecorView();
-            decorView.setSystemUiVisibility(FULLSCREEN);
-            decorView.setOnSystemUiVisibilityChangeListener(this);
+        actionBar = getSupportActionBar();
+        gestureDetector = new GestureDetectorCompat(this, new Settings.GestureHandler());
+        decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(FULLSCREEN);
+        decorView.setOnSystemUiVisibilityChangeListener(this);
 
-            settingsText = (TextView) findViewById(R.id.settingsText);
-            settingsText.setText("Welcome to the Settings Page");
-
-
+        settingsText = (TextView) findViewById(R.id.settingsText);
+        settingsText.setText("Welcome to the Settings Page");
 
 
-            context = this;
-            quit = (Button) findViewById(R.id.quit);
-            quit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, MainScreen.class);
-                    startActivity(intent);
-                }
-            });
+        context = this;
+        quit = (Button) findViewById(R.id.quit);
+        quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MainScreen.class);
+                startActivity(intent);
+            }
+        });
 
-            context = this;
-            data = (Button) findViewById(R.id.data);
-            data.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, AccelarometreData.class);
-                    startActivity(intent);
-                }
-            });
-        }
-
+        context = this;
+        data = (Button) findViewById(R.id.data);
+        data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AccelarometreData.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 
     @Override
@@ -136,7 +132,7 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
         }
     }
 
-    public void tipButtonHandler (View view) {
+    public void tipButtonHandler(View view) {
         Context context = getApplicationContext();
         CharSequence text = "Take your time to read the questions"
                 + System.getProperty("line.separator") + "Try to beat your high score"
@@ -148,7 +144,7 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
         toast.show();
     }
 
-    public void aboutButtonHandler (View view) {
+    public void aboutButtonHandler(View view) {
         Context context = getApplicationContext();
         CharSequence text = "This quiz raises awareness for Natural Disasters"
                 + System.getProperty("line.separator") + "This educational game will teach you about the main natural disasters!"
@@ -159,8 +155,6 @@ public class Settings extends AppCompatActivity implements View.OnSystemUiVisibi
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
-
-
 
 
 }

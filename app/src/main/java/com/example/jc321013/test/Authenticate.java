@@ -59,7 +59,6 @@ public class Authenticate extends AppCompatActivity {
         });
 
 
-
         Background.run(new Runnable() {
             @Override
             public void run() {

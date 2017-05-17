@@ -9,6 +9,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -59,7 +60,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public long addInitialQuestion (Question question) {
+    public long addInitialQuestion(Question question) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Content value being created
         ContentValues values = new ContentValues();
@@ -67,15 +68,13 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put(QUESTION, question.getQuestion());
         values.put(CHOICE1, question.getChoice(0));
         values.put(CHOICE2, question.getChoice(1));
-        values.put(CHOICE3,  question.getChoice(2));
-        values.put(CHOICE4,  question.getChoice(3));
+        values.put(CHOICE3, question.getChoice(2));
+        values.put(CHOICE4, question.getChoice(3));
         values.put(ANSWER, question.getAnswer());
         // rows are inserted
         long insert = db.insert(TABLE_QUESTION, null, values);
         return insert;
     }
-
-
 
 
     public List<Question> getAllQuestionsList() {
@@ -90,22 +89,22 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             do {
                 Question question = new Question();
 
-                String questText= c.getString(c.getColumnIndex(QUESTION));
+                String questText = c.getString(c.getColumnIndex(QUESTION));
                 question.setQuestion(questText);
 
-                String choice1Text= c.getString(c.getColumnIndex(CHOICE1));
-                question.setChoice(0,choice1Text);
+                String choice1Text = c.getString(c.getColumnIndex(CHOICE1));
+                question.setChoice(0, choice1Text);
 
-                String choice2Text= c.getString(c.getColumnIndex(CHOICE2));
-                question.setChoice(1,choice2Text);
+                String choice2Text = c.getString(c.getColumnIndex(CHOICE2));
+                question.setChoice(1, choice2Text);
 
-                String choice3Text= c.getString(c.getColumnIndex(CHOICE3));
-                question.setChoice(2,choice3Text);
+                String choice3Text = c.getString(c.getColumnIndex(CHOICE3));
+                question.setChoice(2, choice3Text);
 
-                String choice4Text= c.getString(c.getColumnIndex(CHOICE4));
-                question.setChoice(3,choice4Text);
+                String choice4Text = c.getString(c.getColumnIndex(CHOICE4));
+                question.setChoice(3, choice4Text);
 
-                String answerText= c.getString(c.getColumnIndex(ANSWER));
+                String answerText = c.getString(c.getColumnIndex(ANSWER));
                 question.setAnswer(answerText);
 
                 // adding to Questions list

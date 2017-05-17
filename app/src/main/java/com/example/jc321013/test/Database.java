@@ -16,7 +16,6 @@ public class Database extends SQLiteOpenHelper {
     // this class stores the users highscores in an sql database
 
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
 
