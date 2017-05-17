@@ -23,7 +23,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     // Database table name
-    private static final String TABLE_QUESTION = "QuestionBank";
+    private static final String TABLE_QUESTION = "MultiChoiceQuestionLibrary";
 
     // All fields used in database table
     private static final String KEY_ID = "id";
@@ -60,7 +60,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public long addInitialQuestion(Question question) {
+    public long addInitialQuestion(MultiChoiceQuestions question) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Content value being created
         ContentValues values = new ContentValues();
@@ -77,8 +77,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<Question> getAllQuestionsList() {
-        List<Question> questionArrayList = new ArrayList<>();
+    public List<MultiChoiceQuestions> getAllQuestionsList() {
+        List<MultiChoiceQuestions> questionArrayList = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + TABLE_QUESTION;
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -87,7 +87,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
         if (c.moveToFirst()) {
             do {
-                Question question = new Question();
+                MultiChoiceQuestions question = new MultiChoiceQuestions();
 
                 String questText = c.getString(c.getColumnIndex(QUESTION));
                 question.setQuestion(questText);

@@ -1,18 +1,18 @@
 package com.example.jc321013.test;
 
-// class Question to describe on question for test:
+// class MultiChoiceQuestions to describe on question for test:
 // question itself, multiple choices to answer, and correct answer
-public class Question {
+public class MultiChoiceQuestions {
 
     private String question;
     private String[] choice = new String[4];
     private String answer;
 
-    public Question() {
+    public MultiChoiceQuestions() {
 
     }
 
-    public Question(String question, String[] choices, String answer) {
+    public MultiChoiceQuestions(String question, String[] choices, String answer) {
         this.question = question;
         this.choice[0] = choices[0];
         this.choice[1] = choices[1];

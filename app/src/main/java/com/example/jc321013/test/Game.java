@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class Game extends AppCompatActivity {
 
-    private QuestionBank mQuestionLibrary = new QuestionBank();
+    private MultiChoiceQuestionLibrary mQuestionLibrary = new MultiChoiceQuestionLibrary();
     private TextView scoreView;
     private TextView questionView;
     private Button choice1;
