@@ -36,6 +36,8 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
     private Button settings;
     private Context context;
 
+    private static final String GAMELINk = "https://play.google.com/store/apps/details?id=jc321013.NaturalDisasters";
+
 
     private static final int AUTHENTICATE = 1;
     Twitter twitter = TwitterFactory.getSingleton();
@@ -195,7 +197,8 @@ public class MainScreen extends AppCompatActivity implements View.OnSystemUiVisi
                     Query query = new Query("@twitterapi");
                     QueryResult result;
                     try {
-                        twitter.updateStatus("everything is fine!");
+                        //posts text and game link to twitter
+                        twitter.updateStatus("Download the best natural disasters awareness game and try it for yourself!! " + GAMELINk);
                         result = twitter.search(query);
                     } catch (final Exception e) {
                         runOnUiThread(new Runnable() {
