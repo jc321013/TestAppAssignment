@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jc321013.test">
+    package="com.example.jc321013.NaturalDisasters">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,18 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainScreen">
+        <activity android:name="com.example.jc321013.NaturalDisasters.MainScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HighestScoreActivity" />
-        <activity android:name=".Game" />
-        <activity android:name=".Authenticate" />
-        <activity android:name=".Settings" />
-        <activity android:name=".AccelarometreData"/>
+        <activity android:name="com.example.jc321013.NaturalDisasters.HighestScoreActivity" />
+        <activity android:name="com.example.jc321013.NaturalDisasters.Game" />
+        <activity android:name="com.example.jc321013.NaturalDisasters.Authenticate" />
+        <activity android:name="com.example.jc321013.NaturalDisasters.Settings" />
+        <activity android:name="com.example.jc321013.NaturalDisasters.AccelarometreData"/>
     </application>
 
 </manifest>

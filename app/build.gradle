@@ -4,11 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.example.jc321013.test"
+        applicationId "com.example.jc321013.NaturalDisasters"
         minSdkVersion 23
         targetSdkVersion 25
         versionCode 3
-        versionName "3"
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

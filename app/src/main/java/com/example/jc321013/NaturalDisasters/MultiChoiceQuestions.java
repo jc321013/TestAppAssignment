@@ -1,4 +1,4 @@
-package com.example.jc321013.test;
+package com.example.jc321013.NaturalDisasters;
 
 // class MultiChoiceQuestions to describe on question for test:
 // question itself, multiple choices to answer, and correct answer

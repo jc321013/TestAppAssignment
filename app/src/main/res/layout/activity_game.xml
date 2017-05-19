@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/volcanoe"
     android:orientation="vertical"
-    tools:context="com.example.jc321013.test.Game">
+    tools:context="com.example.jc321013.NaturalDisasters.Game">
 
     <RelativeLayout
         android:layout_width="match_parent"

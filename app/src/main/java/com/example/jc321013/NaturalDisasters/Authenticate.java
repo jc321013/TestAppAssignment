@@ -1,4 +1,4 @@
-package com.example.jc321013.test;
+package com.example.jc321013.NaturalDisasters;
 
 import android.content.Intent;
 import android.net.Uri;

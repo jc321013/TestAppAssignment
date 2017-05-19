@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/volcanoe"
-    tools:context="com.example.jc321013.test.HighestScoreActivity">
+    tools:context="com.example.jc321013.NaturalDisasters.HighestScoreActivity">
 
     <TextView
         android:id="@+id/fullscreen_content"

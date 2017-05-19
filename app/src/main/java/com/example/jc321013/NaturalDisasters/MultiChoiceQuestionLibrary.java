@@ -1,4 +1,4 @@
-package com.example.jc321013.test;
+package com.example.jc321013.NaturalDisasters;
 
 // This class contains a list of questions
 

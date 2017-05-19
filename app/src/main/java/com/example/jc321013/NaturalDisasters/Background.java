@@ -1,4 +1,4 @@
-package com.example.jc321013.test;
+package com.example.jc321013.NaturalDisasters;
 
 /**
  * Created by jc321013 on 14/05/2017.
